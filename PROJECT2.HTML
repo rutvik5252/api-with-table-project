@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJn4_6x3ulCCc57xbsUMWurtAKdN6sukxvwA&s"
+                alt="">
+        </div>
+        <div class="slide">
+            <img src="https://fileinfo.com/img/ss/xl/jpg_44-2.jpg" alt="" width="30%">
+        </div>
+        <div class="slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Ljxe88K-hlvw0p77WrNLBAgkdPCNRPSkTQ&s"
+                alt="">
+        </div>
+        <div class="slide">
+            <img src="https://academy-cdn.wedio.com/2022/06/jpeg-format.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://photographylife.com/wp-content/uploads/2018/11/Moeraki-Boulders-New-Zealand.jpg" alt="">
+        </div>
+
+        <button onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+</body>
+
+</html>
+<script>
+    let slideIndex = 0
+    const slides = document.querySelectorAll(".slide")
+    console.log(slides.length)
+
+    const showSlide = (index) => {
+        slides.forEach((slide) => {
+            slide.style.display = "none"
+        })
+
+        if (index >= slides.length) {
+            slideIndex = 0
+        } else if (index < 0) {
+            slideIndex = slides.length - 1
+        }
+        slides[slideIndex].style.display = "block"
+    }
+
+    const prevSlide = () => {
+        showSlide((slideIndex -= 1))
+    }
+
+    const nextSlide = () => {
+        showSlide((slideIndex += 1))
+    }
+</script>
